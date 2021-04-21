@@ -1,4 +1,6 @@
-public abstract class Livro{
+package Q1;
+
+public abstract class Livro {
     private String _title;
     private String _ISBN;
     private String _autor;
@@ -39,35 +41,4 @@ public abstract class Livro{
     public void setEditora(String editora){
         this._editora = editora;
     }
-};
-
-
-public class LivroLivraria extends Livro{
-
-    LivroLivraria(title, isbn, autor, ano, editora){
-        super.setTitle(title);
-        super.setIsbn(isbn);
-        super.setAno(ano);
-        super.setAno(editora);
-    }
-
-    public void venderLivro(){
-
-    }
-
-};
-
-public class LivroBiblioteca extends Livro{
-
-    LivroBiblioteca(title, isbn, autor, ano, editora){
-        super.setTitle(title);
-        super.setIsbn(isbn);
-        super.setAno(ano);
-        super.setAno(editora);
-    }
-
-
-    public void emprestarLivro(){
-        
-    }
-};
+}
