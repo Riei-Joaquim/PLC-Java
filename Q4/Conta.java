@@ -11,6 +11,7 @@ public class Conta {
         this._senha = senha;
     }
 
+    @Override
     public String toString(){
         return "Numero de identificacao: "+ this._numId + " Senha de letras: "+ this._senha.getSenhaLetras();
     }

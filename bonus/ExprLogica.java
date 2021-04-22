@@ -23,8 +23,9 @@ public class ExprLogica implements Expression {
         this._expression = expr;
     }
 
+    @Override
     public String toString(){
-        return this._expression;
+        return "ExprLogica@" + this.hashCode() + "|" + this._expression;
     }
 
     public Boolean isExprLogica(String expr){

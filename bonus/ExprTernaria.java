@@ -16,8 +16,9 @@ public class ExprTernaria implements Expression{
         this._exprAritmetica = new ExprAritmetica();
     }
 
+    @Override
     public String toString(){
-        return this._expression;
+        return "ExprTernaria@" + this.hashCode() + "|" + this._expression;
     }
 
     @Override

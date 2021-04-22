@@ -12,6 +12,7 @@ public enum IdentidadeGenero {
         this._strValue = strValue;
     }
 
+    @Override
     public String toString() {
         return this._strValue;
     }
