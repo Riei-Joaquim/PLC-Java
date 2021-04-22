@@ -3,9 +3,41 @@ import static java.lang.System.out;
 
 public class ExprAritmetica implements Expression{
     private final String OPERATORS = "+-*/";
+    private String _expression;
+
+    ExprAritmetica(){
+        this("");
+    }
+    
+    ExprAritmetica(String expr){
+        this._expression = expr;
+    }
+
+    public String getExpression(){
+        return this._expression;
+    }
+
+    public void setExpression(String expr){
+        this._expression = expr;
+    }
+
+    public String toString(){
+        return this._expression;
+    }
+
+    @Override
+    public String avaliar(){
+        Double ans = this.avaliarSolver(this._expression);
+        return ans.toString();
+    }
     
     @Override
-    public Double avaliar(String expr){
+    public String avaliar(String expr){
+        Double ans = this.avaliarSolver(expr);
+        return ans.toString();
+    }
+
+    private Double avaliarSolver(String expr){
         String operando1 = "";
         Boolean isOperando2 = true;
         String operando2 = "";
@@ -35,27 +67,29 @@ public class ExprAritmetica implements Expression{
 
         if(operando1 != ""){
             // na volta da chamada recursiva os operandos e operadores ficam certos.
-            //out.println(operando1 +" "+ curOperator+" "+operando2);
             if(curOperator == '*'){
                 // a*b == b*a
-                return (avaliar(operando2) * avaliar(operando1));
+                return (avaliarSolver(operando2) * avaliarSolver(operando1));
             }
             else if(curOperator == '/'){
                 // a/b == (1/b)*a
-                return ((1/avaliar(operando2)) * avaliar(operando1));
+                return ((1/avaliarSolver(operando2)) * avaliarSolver(operando1));
             }
             else if(curOperator == '+'){
                 //a+b = b+a
-                return (avaliar(operando2) + avaliar(operando1));
+                return (avaliarSolver(operando2) + avaliarSolver(operando1));
             }
             else if(curOperator == '-'){
                 // a-b == -b+a
-                return (-avaliar(operando2) + avaliar(operando1));
+                return (-avaliarSolver(operando2) + avaliarSolver(operando1));
             }
         }
-        //out.println(operando2);
         return Double.parseDouble(operando2);
+    }
 
+    @Override
+    public String imprimirArvore(){
+        return this.imprimirArvore(this._expression);
     }
 
     @Override
@@ -88,12 +122,8 @@ public class ExprAritmetica implements Expression{
         }
 
         if(operando1 != ""){
-            out.println(operando1 +" "+ curOperator+" "+operando2);
             return "(" + imprimirArvore(operando1) + curOperator + imprimirArvore(operando2) + ")";
-         
         }
-
-        out.println(operando2);
 
         return "("+operando2+")";
     }
