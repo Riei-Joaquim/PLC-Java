@@ -1,7 +1,7 @@
 package Q3;
 import static java.lang.System.out;
 
-public class test {
+public class Main {
     public static void main(String args[]) {
         Pessoa p1 = new Pessoa();
         Pessoa p2 = new Pessoa("Joaquim", 22, "Superior incompleto", IdentidadeGenero.CISGENERO, "Hetero", "Masculino");

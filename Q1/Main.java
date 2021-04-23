@@ -1,6 +1,6 @@
 package Q1;
 
-public class test {
+public class Main {
     public static void main(String args[]) {
       LivroBiblioteca principiosHaskell = new LivroBiblioteca("Aprenda Haskell", "121312qweq123", "Romildo", "2018", "Abril");
       principiosHaskell.emprestarLivro();
